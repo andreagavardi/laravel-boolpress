@@ -1,6 +1,8 @@
 <?php
 
 //use App\Http\Controllers\Admin\ArticleController;
+
+//use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +25,4 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('articles', ArticleController::class);
 });
+Route::resource('articles', ArticleController::class)->only(['index', 'show']);

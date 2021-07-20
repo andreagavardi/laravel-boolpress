@@ -10942,3 +10942,17 @@ a.text-dark:focus {
   }
 }
 
+.container.posts .row {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.container.posts .row .post {
+  width: calc(100% / 4 - 2rem);
+  margin: 1rem;
+}
+
+.container.posts .row .post .card-img-top {
+  max-width: 100%;
+}
+

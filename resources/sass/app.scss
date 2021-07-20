@@ -1,8 +1,24 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.container.posts {
+    .row {
+        flex-wrap: wrap;
+        //flex-direction: column;
+        align-items: center;
+
+        .post {
+            width: calc(100% / 4 - 2rem);
+            margin: 1rem;
+            .card-img-top {
+                max-width: 100%;
+            }
+        }
+    }
+}
