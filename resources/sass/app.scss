@@ -11,7 +11,7 @@
     .row {
         flex-wrap: wrap;
         //flex-direction: column;
-        align-items: center;
+        justify-content: center;
 
         .post {
             width: calc(100% / 4 - 2rem);
