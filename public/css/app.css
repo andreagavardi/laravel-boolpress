@@ -10942,6 +10942,16 @@ a.text-dark:focus {
   }
 }
 
+/* HEADER */
+
+.navbar-nav a {
+  text-decoration: none;
+}
+
+/*END HEADER */
+
+/* ARTICLE.INDEX */
+
 .container.posts .row {
   flex-wrap: wrap;
   justify-content: center;
@@ -10952,7 +10962,24 @@ a.text-dark:focus {
   margin: 1rem;
 }
 
+.container.posts .row .post a:hover {
+  text-decoration: none;
+}
+
 .container.posts .row .post .card-img-top {
   max-width: 100%;
 }
+
+/*END ARTICLE.INDEX */
+
+/* ARTICLE.SHOW */
+
+.article img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*END ARTICLE.SHOW */
 

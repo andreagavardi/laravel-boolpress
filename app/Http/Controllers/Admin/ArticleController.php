@@ -26,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.articles.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required | max:100',
+            'author' => 'max:50'
+        ]);
+        Article::create($validated);
+        return redirect()->route('admin.articles.index');
     }
 
     /**
