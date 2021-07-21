@@ -32,14 +32,38 @@
                     <div class="actions d-flex flex-xl-column align-items-center">
                         <a href="{{route('admin.articles.show',$article->id)}}" class="btn btn-outline-dark">View</a>
                         <a class="btn btn-outline-dark my-1 px-3" href="{{route('admin.articles.edit',$article->id)}}" role="button">Edit</a>
-                        <a class="btn btn-danger my-1 px-3" href="#" role="button">Delete</a>
+                        <button class="btn btn-danger my-1 px-3" type="button" data-toggle="modal" data-target="#ModalId">Delete</button>
                     </div>
-
                 </td>
             </tr>
             @endforeach
 
         </tbody>
     </table>
+    <!-- Modal -->
+    <div class="modal fade" id="ModalId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> WARNING!!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    You're going to delete this article forever, are you shure?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form action="{{route('admin.articles.destroy',$article->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
