@@ -30,8 +30,8 @@
                 <td>{{$article->updated_at}}</td>
                 <td>
                     <div class="actions d-flex flex-xl-column align-items-center">
-                        <a href="{{route('articles.show',$article->id)}}" class="btn btn-outline-dark">View</a>
-                        <a class="btn btn-outline-dark my-1 px-3" href="#" role="button">Edit</a>
+                        <a href="{{route('admin.articles.show',$article->id)}}" class="btn btn-outline-dark">View</a>
+                        <a class="btn btn-outline-dark my-1 px-3" href="{{route('admin.articles.edit',$article->id)}}" role="button">Edit</a>
                         <a class="btn btn-danger my-1 px-3" href="#" role="button">Delete</a>
                     </div>
 

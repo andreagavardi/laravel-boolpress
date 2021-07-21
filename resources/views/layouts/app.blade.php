@@ -41,7 +41,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto d-flex align-items-center">
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
@@ -68,6 +68,11 @@
                                     @csrf
                                 </form>
                             </div>
+                        </li>
+                        <li>
+                            @auth
+                            <a href="{{ route('admin.home')}}">Home</a>
+                            @endauth
                         </li>
                         @endguest
                     </ul>
