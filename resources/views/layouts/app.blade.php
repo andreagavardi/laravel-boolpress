@@ -24,7 +24,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container align-items-baseline">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     BOOLPRESS
                 </a>
@@ -35,13 +35,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li>
-                            <a href="{{route('articles.index')}}">POSTS</a>
+                        <li class="nav-item">
+                            <a href="{{route('articles.index')}}" class="nav-link">POSTS</a>
                         </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto d-flex align-items-center">
+                    <ul class=" navbar-nav ml-auto d-flex align-items-center">
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
@@ -69,7 +69,7 @@
                                 </form>
                             </div>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             @auth
                             <a href="{{ route('admin.home')}}">Home</a>
                             @endauth
