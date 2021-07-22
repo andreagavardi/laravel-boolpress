@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::all()->sortByDesc('id');
         return view('admin.articles.index', compact('articles'));
     }
 
@@ -38,8 +38,9 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required | max:100',
-            'author' => 'max:50'
+            'title' => 'required | max:100 | min:10',
+            'image' => 'max:255',
+            'author' => 'max:50 | min:10'
         ]);
         Article::create($validated);
         return redirect()->route('admin.articles.index');
@@ -53,7 +54,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('articles.show', compact('article'));
+        return view('guests.articles.show', compact('article'));
     }
 
     /**
@@ -76,8 +77,12 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $data = $request->all();
-        $article->update($data);
+        $validated = $request->validate([
+            'title' => 'required | max:100 | min:10',
+            'image' => 'max:255',
+            'author' => 'max:50 | min:10'
+        ]);
+        $article->update($validated);
         return redirect()->route('admin.articles.index');
     }
 

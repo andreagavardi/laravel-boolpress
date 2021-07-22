@@ -14,6 +14,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -63,7 +64,6 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -76,16 +76,28 @@
         </nav>
 
         <main class="py-4">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.home')}}">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.articles.index')}}">Articoli</a>
-                </li>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <ul class="nav flex-column py-3">
+                            <li class="nav-item nav-pills">
 
-            </ul>
-            @yield('content')
+                                <a class="nav-link {{Route::currentRouteName() == 'admin.dashboard'? 'active': ''}}" href="{{route('admin.dashboard')}}"><i class="fas fa-tachometer-alt mr-2"></i> Dashboard</a>
+                            </li>
+                            <li class="nav-item nav-pills">
+                                <a class="nav-link {{Route::currentRouteName() == 'admin.articles.index'? 'active': ''}}" href="{{route('admin.articles.index')}}"><i class="fas fa-newspaper mr-2"></i> Posts</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-sm-10">
+                        @yield('content')
+                    </div>
+
+                </div>
+            </div>
+
+
         </main>
     </div>
 </body>

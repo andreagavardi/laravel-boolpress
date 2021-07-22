@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('dashboard');
     Route::resource('articles', ArticleController::class);
 });
 Route::resource('articles', ArticleController::class)->only(['index', 'show']);

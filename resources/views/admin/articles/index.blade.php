@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="container articles d-flex flex-column align-items-center my-3">
-    <h1>Posts</h1>
-    <a class="btn btn-outline-dark my-4" href="{{route('admin.articles.create')}}" role="button">Add an Article</a>
+    <div class="articles_main_top d-flex justify-content-around align-items-center w-100">
+        <h1>Posts</h1>
+        <a class="btn btn-outline-dark my-4" href="{{route('admin.articles.create')}}" role="button">Add an Article</a>
+    </div>
     <table class="table">
         <thead>
             <tr>

@@ -15,7 +15,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return view('articles.index', compact('articles'));
+        return view('guests.articles.index', compact('articles'));
     }
 
     /**
@@ -48,7 +48,7 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         //ddd($article);
-        return view('articles.show', compact('article'));
+        return view('guests.articles.show', compact('article'));
     }
 
     /**

@@ -42,7 +42,8 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">FATTO</button>
+        <a name="" id="" class="btn btn-warning" href="{{route('admin.articles.index')}}" role="button"><i class="fa fa-chevron-left mr-2" aria-hidden="true"></i>BACK</a>
+        <button type="submit" class="btn btn-success">DONE</button>
     </form>
 </div>
 @endsection
