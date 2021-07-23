@@ -40,7 +40,7 @@ class ArticleController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required | max:100 | min:10',
-            'image' => 'nullable | image | max:5000',
+            'image' => 'nullable | image | max:60000',
             'body' => 'nullable',
             'author' => 'max:50 | min:10'
         ]);
@@ -90,7 +90,7 @@ class ArticleController extends Controller
 
         $validated = $request->validate([
             'title' => 'required | max:100 | min:10',
-            'image' => 'nullable | image | max:5000',
+            'image' => 'nullable | image | max:60000',
             'body' => 'nullable',
             'author' => 'max:50 | min:10'
         ]);
