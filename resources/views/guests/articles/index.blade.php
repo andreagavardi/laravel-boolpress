@@ -8,7 +8,7 @@
 
         <div class="card post">
             <a href="{{route('articles.show', $article->id)}}">
-                <img class="card-img-top" src="{{$article->image}}" alt="{{$article->title}}">
+                <img class="card-img-top" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}}">
                 <div class="card-body">
                     <h5 class="card-title">{{$article->title}}</h5>
                     <span>Autore: {{$article->author}}</span>

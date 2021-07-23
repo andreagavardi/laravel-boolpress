@@ -44,9 +44,9 @@ class ArticleController extends Controller
             'author' => 'max:50 | min:10'
         ]);
 
-        //ddd($validated);
-        if ($request()->hash_file('image')) {
-            $image_path = Storage::put('posts_iamges', $validated['image']);
+        //ddd($request->hasFile('image'));
+        if ($request->hasFile('image')) {
+            $image_path = Storage::put('posts_images', $validated['image']);
             $validated['image'] = $image_path;
         }
         //ddd($validated['image']);
@@ -87,9 +87,15 @@ class ArticleController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required | max:100 | min:10',
-            'image' => 'max:255',
+            'image' => 'nullable | image | max:5000',
             'author' => 'max:50 | min:10'
         ]);
+        //ddd($request->hasFile('image'));
+        if ($request->hasFile('image')) {
+            $image_path = Storage::put('posts_images', $validated['image']);
+            $validated['image'] = $image_path;
+        }
+        //ddd($validated['image']);
         $article->update($validated);
         return redirect()->route('admin.articles.index');
     }

@@ -25,7 +25,7 @@
                 <td>{{$article->title}}</td>
 
                 <td>
-                    <img width="100" src="{{$article->image}}" alt="{{$article->title}}">
+                    <img width="100" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}}">
                 </td>
                 <td>{{$article->body}}</td>
                 <td>{{$article->author}}</td>
