@@ -4,6 +4,11 @@
 <div class="container">
     <h1>Contact Me</h1>
     @include('partials.errors')
+    @if(session('message'))
+    <div class="alert alert-success" role="alert">
+        <strong>{{session('message')}}</strong>
+    </div>
+    @endif
     <form action="{{route('contacts.send')}}" method="post">
         @csrf
         <div class="form-group">

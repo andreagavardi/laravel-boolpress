@@ -10,15 +10,15 @@ use Illuminate\Queue\SerializesModels;
 class ContactFormMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -31,6 +31,6 @@ class ContactFormMail extends Mailable
         return $this
             ->from('guestBlog@example.com')
             ->subject('New Contact Message')
-            ->view('view.name');
+            ->view('emails.contactForm');
     }
 }

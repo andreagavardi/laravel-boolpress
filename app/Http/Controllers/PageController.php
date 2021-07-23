@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
@@ -23,6 +25,10 @@ class PageController extends Controller
             'email' => 'required | email',
             'message' => 'required'
         ]);
-        ddd($validated);
+        //ddd($validated);
+        //return (new ContactFormMail($validated))->render();
+        Mail::to('admin@mail.it')
+            ->send(new ContactFormMail($validated));
+        return redirect()->back()->with('message', 'Message sent');
     }
 }
