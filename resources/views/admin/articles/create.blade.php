@@ -7,7 +7,7 @@
 <div class="container d-flex flex-column">
     <h1 class="align-self-center mt-2">Add an Article</h1>
     @include('partials.errors')
-    <form action="{{route('admin.articles.store')}}" method="POST">
+    <form action="{{route('admin.articles.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="title">Titolo</label>
@@ -26,9 +26,9 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="image">Copertina</label>
-            <input type="text" name="image" id="image" class="form-control @error('image') is-invalid @enderror" placeholder="url" aria-describedby="helpId" value="{{old('image')}}">
-            <small id="helpId" class="text-muted">Inserisci l'url dell'immagine</small>
+            <label for="image" class="d-block">Copertina</label>
+            <small id="helpId" class="text-muted d-block">Carica un'immagine</small>
+            <input type="file" name="image" id="image">
             @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
