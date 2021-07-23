@@ -90,6 +90,11 @@
             <div class="links">
                 <a href="{{route('articles.index')}}">Posts</a>
             </div>
+            <div class="links">
+                <a href="{{route('contact')}}" class="nav-link">Contact Me</a>
+
+            </div>
+
         </div>
     </div>
 </body>

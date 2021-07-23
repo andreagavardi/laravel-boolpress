@@ -38,6 +38,9 @@
                         <li class="nav-item">
                             <a href="{{route('articles.index')}}" class="nav-link">Blog</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('contact')}}" class="nav-link">Contact</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
