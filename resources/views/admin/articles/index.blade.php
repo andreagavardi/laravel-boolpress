@@ -8,6 +8,7 @@
     </div>
     <table class="table">
         <thead>
+
             <tr>
                 <th>ID</th>
                 <th>TITLE</th>
