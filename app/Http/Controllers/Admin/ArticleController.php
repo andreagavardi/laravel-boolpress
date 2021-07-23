@@ -85,6 +85,8 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+        //ddd($article->image);
+
         $validated = $request->validate([
             'title' => 'required | max:100 | min:10',
             'image' => 'nullable | image | max:5000',
@@ -92,6 +94,7 @@ class ArticleController extends Controller
         ]);
         //ddd($request->hasFile('image'));
         if ($request->hasFile('image')) {
+            Storage::delete($article->image);
             $image_path = Storage::put('posts_images', $validated['image']);
             $validated['image'] = $image_path;
         }
