@@ -12,9 +12,9 @@
 
     <h4>You have a new Message:</h4>
     <div class="mail">
-        <span>From: <strong>{{$data['full_name']}}</strong></span><br>
-        <span>Email Address: <strong>{{$data['email']}}</strong></span>
-        <p> <strong> Message:</strong>{{$data['message']}}</p>
+        <span>From: <strong>{{$contact->name}}</strong></span><br>
+        <span>Email Address: <strong>{{$contact->email}}</strong></span>
+        <p> <strong> Message:</strong>{{$contact->message}}</p>
     </div>
 
 </body>

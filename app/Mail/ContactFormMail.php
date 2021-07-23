@@ -5,20 +5,21 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use App\Contact;
 use Illuminate\Queue\SerializesModels;
 
 class ContactFormMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $data;
+    public $contact;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(array $data)
+    public function __construct(Contact $contact)
     {
-        $this->data = $data;
+        $this->contact = $contact;
     }
 
     /**
@@ -30,7 +31,7 @@ class ContactFormMail extends Mailable
     {
         return $this
             ->from('guestBlog@example.com')
-            ->subject('New Contact Message')
+            ->subject('New BoolPress Contact Message')
             ->view('emails.contactForm');
     }
 }

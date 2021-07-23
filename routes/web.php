@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PageController@index');
 Route::get('/contacts', 'PageController@contact')->name('contact');
-Route::post('contacts', 'PageController@sendForm')->name('contacts.send');
+Route::post('contacts', 'ContactController@store')->name('contacts.send');
 
 Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {

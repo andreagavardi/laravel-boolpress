@@ -12,8 +12,8 @@
     <form action="{{route('contacts.send')}}" method="post">
         @csrf
         <div class="form-group">
-            <label for="full_name">Full Name</label>
-            <input type="text" name="full_name" id="full_name" class="form-control @error('full_name') is-invalid @enderror" placeholder="Name Lastname" aria-describedby="helpName" value="{{old('full_name')}}">
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" class="form-control @error('full_name') is-invalid @enderror" placeholder="Name Lastname" aria-describedby="helpName" value="{{old('full_name')}}">
             <small id="helpName" class="text-muted">Insert your fullname</small>
             @error('full_name')
             <div class="alert alert-danger">{{ $message }}</div>
