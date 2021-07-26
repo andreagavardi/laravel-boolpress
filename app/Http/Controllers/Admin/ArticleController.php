@@ -42,12 +42,13 @@ class ArticleController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required | max:100 | min:10',
+            'category_id' => 'nullable | exists:categories,id',
             'image' => 'nullable | image | max:60000',
             'body' => 'nullable',
-            'author' => 'max:50 | min:10'
+            'author' => 'required | max:50 | min:10'
         ]);
 
-        //ddd($request->hasFile('image'));
+        ddd($request->all());
         if ($request->hasFile('image')) {
             $image_path = Storage::put('posts_images', $validated['image']);
             $validated['image'] = $image_path;
@@ -76,7 +77,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('admin.articles.edit', compact('article'));
+        $categories = Category::all();
+        return view('admin.articles.edit', compact('article', 'categories'));
     }
 
     /**
@@ -92,10 +94,12 @@ class ArticleController extends Controller
 
         $validated = $request->validate([
             'title' => 'required | max:100 | min:10',
+            'category_id' => 'nullable | exists:categories,id',
             'image' => 'nullable | image | max:60000',
             'body' => 'nullable',
-            'author' => 'max:50 | min:10'
+            'author' => 'required | max:50 | min:10'
         ]);
+        //ddd($request->all());
         //ddd($request->hasFile('image'));
         if ($request->hasFile('image')) {
             Storage::delete($article->image);

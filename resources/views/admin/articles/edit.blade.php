@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container d-flex flex-column">
-    <h1 class="align-self-center mt-2">Add an Article</h1>
+    <h1 class="align-self-center mt-2">Edit Article</h1>
     @include('partials.errors')
     <form action="{{route('admin.articles.update',$article->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -17,6 +17,16 @@
             @error('title')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+        </div>
+        <div class="form-group">
+            <label for="category_id">Category</label>
+            <select class="form-control" name="category_id" id="category_id">
+                <option value="">Choose a Category</option>
+                @foreach($categories as $category)
+                <option value="{{$category->id}}" {{$category->id == old('category_id',$article->category_id)? 'selected': ''}}>{{$category->name}}</option>
+                @endforeach
+
+            </select>
         </div>
         <div class="form-group">
             <label for="body">Corpo</label>
