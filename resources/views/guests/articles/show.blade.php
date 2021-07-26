@@ -4,7 +4,7 @@
 <div class="container">
     <div class="article d-flex justify-content-center align-items-center py-3 flex-wrap">
         <div class="article_top d-flex flex-column align-items-center col-6 ">
-            <h2 class=" text-center mb-4">{{$article->title}}</h2>
+            <h2 class=" text-center text-uppercase mb-4">{{$article->title}}</h2>
             <img width="200" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}}">
         </div>
         <p class="col-6">{{$article->body}}</p>
