@@ -11018,3 +11018,13 @@ a.text-dark:focus {
      object-fit: cover;
 }
 
+.category_posts .card .card-body {
+  height: 190px;
+}
+
+.category_posts .card .card-body .card-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+

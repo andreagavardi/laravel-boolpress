@@ -14,7 +14,8 @@
             <h4 class="card-title">{{$article->title}}</h4>
             <span><strong>Scritto da: </strong> {{$article->author}}</span><br>
             <span><strong>in data: </strong>{{$article->updated_at}}</span>
-            <p class="card-text">{{$article->body}}</p>
+            <div class="card-text">{{$article->body}}</div>
+            <a href="{{route('articles.show', $article->id)}}">Read More</a>
         </div>
     </div>
     @endforeach
