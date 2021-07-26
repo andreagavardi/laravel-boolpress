@@ -7,7 +7,9 @@
 <div class="container category_posts d-flex flex-wrap">
     @foreach($articles as $article)
     <div class="card">
-        <img class="card-img-top" width="150" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}} Image">
+        <a href="{{route('articles.show', $article->id)}}">
+            <img class="card-img-top" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}}">
+        </a>
         <div class="card-body">
             <h4 class="card-title">{{$article->title}}</h4>
             <span><strong>Scritto da: </strong> {{$article->author}}</span><br>
