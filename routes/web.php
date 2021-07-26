@@ -3,6 +3,8 @@
 //use App\Http\Controllers\Admin\ArticleController;
 
 //use App\Http\Controllers\ArticleController;
+
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PageController@index');
 Route::get('/contacts', 'PageController@contact')->name('contact');
 Route::post('contacts', 'ContactController@store')->name('contacts.send');
-
+Route::get('categories/{category}', 'CategoryController@show')->name('categories.show');
 Auth::routes();
+
+/* Admin Routes */
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
     Route::resource('articles', ArticleController::class);

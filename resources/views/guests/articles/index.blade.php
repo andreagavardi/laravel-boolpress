@@ -14,7 +14,7 @@
                 <h4 class="card-title text-uppercase">{{$article->title}}</h4>
                 <h5> Category:
                     @if($article->category)
-                    {{$article->category->name}}
+                    <a href="{{route('categories.show',$article->category->id)}}">{{$article->category->name}}</a>
                     @else Uncategorized
                     @endif
                 </h5>
