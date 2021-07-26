@@ -9,6 +9,13 @@
         </div>
         <p class="col-6">{{$article->body}}</p>
         <div class="article_spec col-12 mt-5">
+            <h5>Category:
+                @if($article->category)
+                {{$article->category->name}}
+                @else
+                Uncategorized
+                @endif
+            </h5>
             <span><strong>Scritto da: </strong> {{$article->author}}</span><br>
             <span><strong>in data: </strong>{{$article->updated_at}}</span>
         </div>

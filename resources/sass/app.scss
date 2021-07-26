@@ -33,6 +33,14 @@
             .card-img-top {
                 max-width: 100%;
             }
+            .card-body {
+                height: 190px;
+                .card-text {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+            }
         }
     }
 }

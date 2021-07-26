@@ -10970,6 +10970,16 @@ a.text-dark:focus {
   max-width: 100%;
 }
 
+.container.posts .row .post .card-body {
+  height: 190px;
+}
+
+.container.posts .row .post .card-body .card-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 /*END ARTICLE.INDEX */
 
 /* ARTICLE.SHOW */

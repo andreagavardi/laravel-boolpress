@@ -9,12 +9,20 @@
         <div class="card post">
             <a href="{{route('articles.show', $article->id)}}">
                 <img class="card-img-top" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}}">
-                <div class="card-body">
-                    <h5 class="card-title text-uppercase">{{$article->title}}</h5>
-                    <span>Autore: {{$article->author}}</span>
-                    <p class="card-text">{{$article->body}}</p>
-                </div>
             </a>
+            <div class="card-body">
+                <h4 class="card-title text-uppercase">{{$article->title}}</h4>
+                <h5> Category:
+                    @if($article->category)
+                    {{$article->category->name}}
+                    @else Uncategorized
+                    @endif
+                </h5>
+                <span>Autore: {{$article->author}}</span>
+                <div class="card-text">{{$article->body}}
+                </div>
+                <a href="{{route('articles.show', $article->id)}}">Read More</a>
+            </div>
         </div>
         @endforeach
     </div>
