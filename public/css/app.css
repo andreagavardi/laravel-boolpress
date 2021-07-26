@@ -10993,3 +10993,17 @@ a.text-dark:focus {
 
 /*END ARTICLE.SHOW */
 
+/* CATEGORIES.SHOW*/
+
+.category_posts .card {
+  width: calc(100% / 2 - 1rem);
+  margin: 0.5rem;
+}
+
+.category_posts .card .card-img-top {
+  width: 100%;
+  height: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+

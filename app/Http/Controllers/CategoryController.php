@@ -29,6 +29,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('guests.categories.show', compact('category'));
+        $articles = $category->articles->sortByDesc('id');
+        //ddd($articles);
+        return view('guests.categories.show', compact('articles', 'category'));
     }
 }
