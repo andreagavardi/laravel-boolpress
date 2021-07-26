@@ -10,6 +10,11 @@ class Article extends Model
         'title',
         'image',
         'body',
-        'author'
+        'author',
+        'category_id'
     ];
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

@@ -18,6 +18,16 @@
             @enderror
         </div>
         <div class="form-group">
+            <label for="category_id">Category</label>
+            <select class="form-control" name="category_id" id="category_id">
+                <option value="">Choose a Category</option>
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+
+            </select>
+        </div>
+        <div class="form-group">
             <label for="body">Corpo</label>
             <textarea class="form-control @error('description') is-invalid @enderror" name="body" id="body" rows="3">{{old('body')}}</textarea>
             <small id="helpId" class="text-muted">Inserisci il nuovo articolo</small>
