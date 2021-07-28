@@ -12,6 +12,13 @@
             </a>
             <div class="card-body">
                 <h4 class="card-title text-uppercase">{{$article->title}}</h4>
+                <div class="tags">
+                    <strong>Tags: </strong>
+                    @forelse($article->tags as $tag)
+                    <span class="tag">{{$tag->name}}</span>
+                    @empty <span> No Tags Yet</span>
+                    @endif
+                </div>
                 <h5> Category:
                     @if($article->category)
                     <a href="{{route('categories.show',$article->category->id)}}">{{$article->category->name}}</a>

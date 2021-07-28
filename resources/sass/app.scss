@@ -37,7 +37,18 @@
                 }
             }
             .card-body {
-                height: 190px;
+                .tags {
+                    margin-bottom: 0.5rem;
+                    .tag {
+                        font-weight: 600;
+                        background-color: #22b9ea;
+                        border-radius: 0.25rem;
+                        padding: 0.25rem 0.25rem;
+                        color: white;
+                        text-transform: uppercase;
+                        font-size: 0.7rem;
+                    }
+                }
                 .card-text {
                     white-space: nowrap;
                     text-overflow: ellipsis;

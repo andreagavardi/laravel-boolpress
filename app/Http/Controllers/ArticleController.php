@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
 use App\Article;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all()->sortByDesc('id');
-        return view('guests.articles.index', compact('articles'));
+        $tags = Tag::all();
+        return view('guests.articles.index', compact('articles', 'tags'));
     }
 
     /**
