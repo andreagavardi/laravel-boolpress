@@ -82,7 +82,8 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $categories = Category::all();
-        return view('admin.articles.edit', compact('article', 'categories'));
+        $tags = Tag::all();
+        return view('admin.articles.edit', compact('article', 'categories', 'tags'));
     }
 
     /**
@@ -99,6 +100,7 @@ class ArticleController extends Controller
         $validated = $request->validate([
             'title' => 'required | max:100 | min:10',
             'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'nullable | exists:tags,id',
             'image' => 'nullable | image | max:60000',
             'body' => 'nullable',
             'author' => 'required | max:50 | min:10'
@@ -112,6 +114,7 @@ class ArticleController extends Controller
         }
         //ddd($validated['image']);
         $article->update($validated);
+        $article->tags()->sync($request->tags);
         return redirect()->route('admin.articles.index');
     }
 

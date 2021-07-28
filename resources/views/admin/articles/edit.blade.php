@@ -28,6 +28,18 @@
             </select>
         </div>
         <div class="form-group">
+            <label for="tags[]">Tags</label>
+            <select multiple class="form-control" name="tags[]" id="tags[]">
+                <option value="" disabled>Select a Tag</option>
+                @foreach($tags as $tag)
+                <option value="{{$tag->id}}" {{$article->tags->contains($tag)? 'selected' : ''}}>{{$tag->name}}</option>
+                @endforeach
+            </select>
+            @error('tags[]')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group">
             <label for="body">Corpo</label>
             <textarea class="form-control @error('description') is-invalid @enderror" name="body" id="body" rows="3">{{($article->body)}}</textarea>
             <small id="helpId" class="text-muted">Inserisci il nuovo articolo</small>
