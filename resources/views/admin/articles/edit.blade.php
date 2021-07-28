@@ -25,7 +25,6 @@
                 @foreach($categories as $category)
                 <option value="{{$category->id}}" {{$category->id == old('category_id',$article->category_id)? 'selected': ''}}>{{$category->name}}</option>
                 @endforeach
-
             </select>
         </div>
         <div class="form-group">
