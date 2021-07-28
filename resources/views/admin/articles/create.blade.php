@@ -24,8 +24,22 @@
                 @foreach($categories as $category)
                 <option value="{{$category->id}}" {{$category->id == old('category_id')? 'selected': ''}}>{{$category->name}}</option>
                 @endforeach
-
             </select>
+            @error('category_id')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label for="tags[]">Tags</label>
+            <select multiple class="form-control" name="tags[]" id="tags[]">
+                <option value="" disabled>Select a Tag</option>
+                @foreach($tags as $tag)
+                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                @endforeach
+            </select>
+            @error('tags[]')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-group">
             <label for="body">Corpo</label>

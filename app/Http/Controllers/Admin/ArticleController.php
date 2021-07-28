@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Category;
+use App\Tag;
 
 class ArticleController extends Controller
 {
@@ -29,7 +30,8 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.articles.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.articles.create', compact('categories', 'tags'));
     }
 
     /**
@@ -43,18 +45,20 @@ class ArticleController extends Controller
         $validated = $request->validate([
             'title' => 'required | max:100 | min:10',
             'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'nullable | exists:tags,id',
             'image' => 'nullable | image | max:60000',
             'body' => 'nullable',
             'author' => 'required | max:50 | min:10'
         ]);
 
-        ddd($request->all());
+        //ddd($validated);
         if ($request->hasFile('image')) {
             $image_path = Storage::put('posts_images', $validated['image']);
             $validated['image'] = $image_path;
         }
         //ddd($validated['image']);
-        Article::create($validated);
+        $article = Article::create($validated);
+        $article->tags()->attach($request->tags);
         return redirect()->route('admin.articles.index');
     }
 

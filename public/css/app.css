@@ -1,5 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.tags {
+  margin-bottom: 0.5rem;
+}
+
+.tags .tag {
+  font-weight: 600;
+  background-color: #22b9ea;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.25rem;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10975,20 +10989,6 @@ a.text-dark:focus {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.container.posts .row .post .card-body .tags {
-  margin-bottom: 0.5rem;
-}
-
-.container.posts .row .post .card-body .tags .tag {
-  font-weight: 600;
-  background-color: #22b9ea;
-  border-radius: 0.25rem;
-  padding: 0.25rem 0.25rem;
-  color: white;
-  text-transform: uppercase;
-  font-size: 0.7rem;
 }
 
 .container.posts .row .post .card-body .card-text {

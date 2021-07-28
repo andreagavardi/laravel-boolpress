@@ -7,7 +7,18 @@
             <h2 class=" text-center text-uppercase mb-4">{{$article->title}}</h2>
             <img width="200" src="{{asset('storage/' . $article->image)}}" alt="{{$article->title}}">
         </div>
-        <p class="col-6">{{$article->body}}</p>
+
+        <div class="col-6">
+            <div class="tags">
+                <strong>Tags: </strong>
+                @forelse($article->tags as $tag)
+                <span class="tag">{{$tag->name}}</span>
+                @empty <span> No Tags Yet</span>
+                @endif
+            </div>
+            <p>{{$article->body}}</p>
+
+        </div>
         <div class="article_spec col-12 mt-5">
             <h5>Category:
                 @if($article->category)
