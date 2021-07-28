@@ -115,6 +115,7 @@ class ArticleController extends Controller
         //ddd($validated['image']);
         $article->update($validated);
         $article->tags()->sync($request->tags);
+        //ddd($article->tags);
         return redirect()->route('admin.articles.index');
     }
 
@@ -126,6 +127,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        ddd($article->id);
+        $article->tags()->detach();
         $article->delete();
         return redirect()->route('admin.articles.index');
     }

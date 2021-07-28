@@ -35,16 +35,19 @@
                     <div class="actions d-flex flex-xl-column align-items-center">
                         <a href="{{route('admin.articles.show',$article->id)}}" class="btn btn-outline-dark">View</a>
                         <a class="btn btn-outline-dark my-1 px-3" href="{{route('admin.articles.edit',$article->id)}}" role="button">Edit</a>
-                        <button class="btn btn-danger my-1 px-3" type="button" data-toggle="modal" data-target="#ModalId">Delete</button>
+                        <button class="btn btn-danger my-1 px-3" type="button" data-toggle="modal" data-target="#Modal-{{$article->id}}">Delete</button>
+
                     </div>
                 </td>
             </tr>
+
             @endforeach
 
         </tbody>
     </table>
+    @foreach($articles as $article)
     <!-- Modal -->
-    <div class="modal fade" id="ModalId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal fade" id="Modal-{{$article->id}}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -68,5 +71,6 @@
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 @endsection
