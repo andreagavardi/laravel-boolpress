@@ -33,4 +33,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
 /* Article Route */
 Route::resource('articles', ArticleController::class)->only(['index', 'show']);
 
-
+Route::get('vue-posts',function ()
+{
+    return view('Api.posts.index');
+});

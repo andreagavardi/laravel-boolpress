@@ -4,9 +4,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+const { default: axios } = require('axios');
+
 require('./bootstrap');
 
-window.Vue = require('vue');
+import Vue from 'vue';
+//window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,4 +32,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    data:{
+        posts:null,
+    },
+    mounted(){
+        axios.get('/api/api-posts').then(resp=>{
+            //console.log(resp.data.data);
+            this.posts = resp.data.data;
+
+        }).catch(e=>{
+            console.error(e);
+        })
+
+    }
 });
