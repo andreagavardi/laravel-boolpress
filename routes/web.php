@@ -29,4 +29,8 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     Route::get('/', 'HomeController@index')->name('dashboard');
     Route::resource('articles', ArticleController::class);
 });
+
+/* Article Route */
 Route::resource('articles', ArticleController::class)->only(['index', 'show']);
+
+

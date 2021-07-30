@@ -78,7 +78,7 @@
         <main class="py-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <aside class="col-sm-2">
                         <ul class="nav flex-column py-3">
                             <li class="nav-item nav-pills">
 
@@ -89,7 +89,7 @@
                             </li>
 
                         </ul>
-                    </div>
+                    </aside>
                     <div class="col-sm-10">
                         @yield('content')
                     </div>
