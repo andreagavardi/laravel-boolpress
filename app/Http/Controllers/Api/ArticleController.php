@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Http\Resources\ArticleResource;
 class ArticleController extends Controller
 {
     /**
@@ -16,11 +16,17 @@ class ArticleController extends Controller
     public function index()
     {
         //Senza Eloquent Api Resource
-        /* $articles = Article::with([
+       /*  $articles = Article::with([
             'category',
             'tags'
-        ])->paginate(); */
-        return $articles;
+        ])->paginate();
+            return $articles; */
+        //Con Eloquent Api Resource
+        $articles = Article::with([
+            'category',
+            'tags'
+        ])->paginate();
+        return ArticleResource::collection($articles);
     }
 
     /**
