@@ -11,14 +11,16 @@
 .tags {
     margin-bottom: 0.5rem;
     .tag {
-        font-weight: 600;
-        background-color: #22b9ea;
-        border-radius: 0.25rem;
-        margin-right: 0.5rem;
-        padding: 0.15rem 0.2rem;
-        color: white;
-        text-transform: uppercase;
-        font-size: 0.7rem;
+        span {
+            font-weight: 600;
+            background-color: #22b9ea;
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            padding: 0.15rem 0.2rem;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
     }
 }
 

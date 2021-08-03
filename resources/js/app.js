@@ -23,6 +23,8 @@ import Vue from 'vue';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('article-component', require('./components/ArticleComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,17 +34,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-    data:{
-        posts:null,
-    },
-    mounted(){
-        axios.get('/api/api-posts').then(resp=>{
-            //console.log(resp.data.data);
-            this.posts = resp.data.data;
 
-        }).catch(e=>{
-            console.error(e);
-        })
-
-    }
 });

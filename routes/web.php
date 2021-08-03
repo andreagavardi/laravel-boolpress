@@ -36,4 +36,4 @@ Route::resource('articles', ArticleController::class)->only(['index', 'show']);
 Route::get('vue-posts',function ()
 {
     return view('Api.posts.index');
-});
+})->name('posts-api');

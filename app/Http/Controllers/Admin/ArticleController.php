@@ -46,7 +46,7 @@ class ArticleController extends Controller
             'title' => 'required | max:100 | min:10',
             'category_id' => 'nullable | exists:categories,id',
             'tags' => 'nullable | exists:tags,id',
-            'image' => 'nullable | image | max:60',
+            'image' => 'nullable | image | max:600',
             'body' => 'nullable',
             'author' => 'required | max:50 | min:10'
         ]);
@@ -101,7 +101,7 @@ class ArticleController extends Controller
             'title' => 'required | max:100 | min:10',
             'category_id' => 'nullable | exists:categories,id',
             'tags' => 'nullable | exists:tags,id',
-            'image' => 'nullable | image | max:60',
+            'image' => 'nullable | image | max:600',
             'body' => 'nullable',
             'author' => 'required | max:50 | min:10'
         ]);
