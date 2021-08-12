@@ -22,6 +22,8 @@ Route::get('/', 'PageController@index');
 Route::get('/contacts', 'PageController@contact')->name('contact');
 Route::post('contacts', 'ContactController@store')->name('contacts.send');
 Route::get('categories/{category}', 'CategoryController@show')->name('categories.show');
+Route::get('tags/{tag}', 'TagController@show')->name('tags.show');
+
 Auth::routes();
 
 /* Admin Routes */
@@ -33,6 +35,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
 /* Article Route */
 Route::resource('articles', ArticleController::class)->only(['index', 'show']);
 
+/* Api-Article-route */
 Route::get('vue-posts',function ()
 {
     return view('Api.posts.index');

@@ -46,7 +46,8 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        $articles=$tag->articles;
+        return view('guests.tags.show',compact('tag','articles'));
     }
 
     /**

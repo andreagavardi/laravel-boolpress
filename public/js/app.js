@@ -1876,6 +1876,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -1888,6 +1892,9 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/api-posts').then(function (resp) {
       //console.log(resp.data.data);
       _this.posts = resp.data.data;
+      /* this.posts.forEach(post => {
+          console.log(post.tags);
+      }); */
     })["catch"](function (e) {
       console.error(e);
     });
@@ -37581,7 +37588,7 @@ var render = function() {
           _c("div", { staticClass: "tags" }, [
             _c("strong", [_vm._v("Tags: ")]),
             _vm._v(" "),
-            post.tags
+            post.tags.length > 0
               ? _c(
                   "div",
                   { staticClass: "tag" },
@@ -37592,7 +37599,7 @@ var render = function() {
                   }),
                   0
                 )
-              : _c("span", [_vm._v(" No Tags Yet")])
+              : _c("div", [_c("span", [_vm._v("No Tags Yet")])])
           ]),
           _vm._v(" "),
           _c("h5", [
@@ -37610,7 +37617,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "card-text" }, [
             _vm._v(
-              "\n                 @" + _vm._s(post.body) + "\n             "
+              "\n                 " + _vm._s(post.body) + "\n             "
             )
           ]),
           _vm._v(" "),

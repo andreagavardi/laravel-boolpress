@@ -46,7 +46,7 @@ class ArticleController extends Controller
             'title' => 'required | max:100 | min:10',
             'category_id' => 'nullable | exists:categories,id',
             'tags' => 'nullable | exists:tags,id',
-            'image' => 'nullable | image | max:600',
+            'image' => 'nullable | image | max:60000',
             'body' => 'nullable',
             'author' => 'required | max:50 | min:10'
         ]);
@@ -127,7 +127,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        ddd($article->id);
+        //ddd($article->id);
+         Storage::delete($article->image);
         $article->tags()->detach();
         $article->delete();
         return redirect()->route('admin.articles.index');
