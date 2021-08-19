@@ -19,4 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /* Api-Article Route con l' ArticleController */
-Route::get('api-posts','Api\ArticleController@index');
+Route::middleware('auth:api')->group(function () {
+    Route::get('api-posts','Api\ArticleController@index');
+
+});

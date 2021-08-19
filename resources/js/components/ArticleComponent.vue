@@ -1,5 +1,10 @@
 <template>
    <div class="row">
+       <div class="errors" v-if="errors">
+
+           Sorry, you're not authorized,please check your <strong>Token</strong> <br>
+           {{errors}}
+       </div>
         <div class="card post w-25 m-2" v-for="post in posts" :key="post.id">
             <a href="#">
                 <img class="card-img-top" :src="'storage/' + post.image" :alt="post.title">
@@ -38,11 +43,15 @@ export default {
 
    data(){
        return{
-           posts:null
+           posts:null,
+           errors:null
        }
    },
     mounted(){
-        axios.get('/api/api-posts').then(resp=>{
+        let config = { method: 'get', url: '/api/api-posts',
+        headers: { 'Authorization': 'Bearer YB34wRWo5lYdOBU7xwKke719J7tPQnwoTROzbTrn62dN2sHi0aySYKIq2NrNaLr3qF5Sd2eRwoazQTYW'}  }
+        //console.log(config);
+        axios(config).then(resp=>{
             //console.log(resp.data.data);
             this.posts = resp.data.data;
             /* this.posts.forEach(post => {
@@ -51,6 +60,7 @@ export default {
 
         }).catch(e=>{
             console.error(e);
+            this.errors = e;
         })
     }
 };

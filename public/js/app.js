@@ -1880,16 +1880,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      posts: null
+      posts: null,
+      errors: null
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/api/api-posts').then(function (resp) {
+    var config = {
+      method: 'get',
+      url: '/api/api-posts',
+      headers: {
+        'Authorization': 'Bearer YB34wRWo5lYdOBU7xwKke719J7tPQnwoTROzbTrn62dN2sHi0aySYKIq2NrNaLr3qF5Sd2eRwoazQTYW'
+      }
+    }; //console.log(config);
+
+    axios(config).then(function (resp) {
       //console.log(resp.data.data);
       _this.posts = resp.data.data;
       /* this.posts.forEach(post => {
@@ -1897,6 +1911,7 @@ __webpack_require__.r(__webpack_exports__);
       }); */
     })["catch"](function (e) {
       console.error(e);
+      _this.errors = e;
     });
   }
 });
@@ -37571,61 +37586,75 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "row" },
-    _vm._l(_vm.posts, function(post) {
-      return _c("div", { key: post.id, staticClass: "card post w-25 m-2" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            staticClass: "card-img-top",
-            attrs: { src: "storage/" + post.image, alt: post.title }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("h4", { staticClass: "card-title text-uppercase" }, [
-            _vm._v(_vm._s(post.title))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "tags" }, [
-            _c("strong", [_vm._v("Tags: ")]),
-            _vm._v(" "),
-            post.tags.length > 0
-              ? _c(
-                  "div",
-                  { staticClass: "tag" },
-                  _vm._l(post.tags, function(tag) {
-                    return _c("span", { key: tag.id }, [
-                      _vm._v(_vm._s(tag.name) + " ")
-                    ])
-                  }),
-                  0
-                )
-              : _c("div", [_c("span", [_vm._v("No Tags Yet")])])
-          ]),
-          _vm._v(" "),
-          _c("h5", [
-            _vm._v(" Category:\n                 "),
-            _c("a", { attrs: { href: "#" } }, [
-              _vm._v(
-                "\n                     " +
-                  _vm._s(post.category.name) +
-                  "\n                 "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("span", [_vm._v("Autore: " + _vm._s(post.author))]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-text" }, [
+    [
+      _vm.errors
+        ? _c("div", { staticClass: "errors" }, [
             _vm._v(
-              "\n                 " + _vm._s(post.body) + "\n             "
-            )
+              "\n\n        Sorry, you're not authorized,please check your "
+            ),
+            _c("strong", [_vm._v("Token")]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("\n        " + _vm._s(_vm.errors) + "\n    ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.posts, function(post) {
+        return _c("div", { key: post.id, staticClass: "card post w-25 m-2" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: { src: "storage/" + post.image, alt: post.title }
+            })
           ]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Read More")])
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "card-title text-uppercase" }, [
+              _vm._v(_vm._s(post.title))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "tags" }, [
+              _c("strong", [_vm._v("Tags: ")]),
+              _vm._v(" "),
+              post.tags.length > 0
+                ? _c(
+                    "div",
+                    { staticClass: "tag" },
+                    _vm._l(post.tags, function(tag) {
+                      return _c("span", { key: tag.id }, [
+                        _vm._v(_vm._s(tag.name) + " ")
+                      ])
+                    }),
+                    0
+                  )
+                : _c("div", [_c("span", [_vm._v("No Tags Yet")])])
+            ]),
+            _vm._v(" "),
+            _c("h5", [
+              _vm._v(" Category:\n                 "),
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v(
+                  "\n                     " +
+                    _vm._s(post.category.name) +
+                    "\n                 "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("span", [_vm._v("Autore: " + _vm._s(post.author))]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-text" }, [
+              _vm._v(
+                "\n                 " + _vm._s(post.body) + "\n             "
+              )
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Read More")])
+          ])
         ])
-      ])
-    }),
-    0
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []

@@ -30,6 +30,8 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
     Route::resource('articles', ArticleController::class);
+     // API TOKEN GENERATION
+    Route::post('api-token', 'ApiTokenController@update')->name('api-token');
 });
 
 /* Article Route */
