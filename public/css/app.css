@@ -10005,7 +10005,8 @@ h3 {
 .tags {
   margin-bottom: 0.5rem;
 }
-.tags .tag span {
+.tags .tag span,
+.tags .tag a {
   font-weight: 600;
   background-color: #22b9ea;
   border-radius: 0.25rem;

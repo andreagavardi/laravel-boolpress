@@ -4,7 +4,7 @@
 <div class="jumbotron">
     <h1 class="display-4 text-center">Articles with <span class=" text-uppercase">{{$tag->name}} </span>tag</h1>
 </div>
-<div class="container category_posts d-flex flex-wrap">
+<div class="container category_posts d-flex flex-wrap justify-content-center">
     @foreach($articles as $article)
     <div class="card">
         <a href="{{route('articles.show', $article->id)}}">

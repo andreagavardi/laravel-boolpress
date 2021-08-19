@@ -11,7 +11,8 @@
 .tags {
     margin-bottom: 0.5rem;
     .tag {
-        span {
+        span,
+        a {
             font-weight: 600;
             background-color: #22b9ea;
             border-radius: 0.25rem;
